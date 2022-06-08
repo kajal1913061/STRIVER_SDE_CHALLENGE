@@ -1,3 +1,5 @@
+
+// TC O(n) SC o(1)
 pair<int,int> missingAndRepeating(vector<int> &arr, int n)
 {   int repeat=0,mis=0;
     for(int i=0;i<n;i++){
