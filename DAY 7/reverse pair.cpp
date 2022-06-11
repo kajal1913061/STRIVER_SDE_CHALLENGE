@@ -33,6 +33,7 @@ int merge(vector<int> &nums, int low, int mid, int high)
             nums[i] = temp[i-low];
         
         return count;
+}
     }
     
     int mergeSort(vector<int> &nums, int low, int high)
