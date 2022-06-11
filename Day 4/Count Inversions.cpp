@@ -23,4 +23,53 @@ where b is the present element.*/
 
 // M5 using merge sort TC O(nlogn) SC O(1)
 
+#include <bits/stdc++.h> 
+long long merge(long long *nums, int low, int mid, int high)
+    {
+        int count = 0;
+        int j = mid+1;
+        for(int i = low; i <= mid; i++)
+        {
+            while(j <= high && nums[i] > nums[j])
+                j++;
+            count += (j-(mid+1));
+        }
+        
+    
+        // perform merge
+        vector<int> temp;
+        int left = low, right = mid+1;
+        while(left <= mid && right <= high)
+        {
+            if(nums[left] <= nums[right])
+                temp.push_back(nums[left++]);
+            else
+                temp.push_back(nums[right++]);
+        }
+
+        while(left <= mid)
+            temp.push_back(nums[left++]);
+
+        while(right <= high)
+            temp.push_back(nums[right++]);
+        
+        for(int i = low; i <= high; i++)
+            nums[i] = temp[i-low];
+        
+        return count;
+    }
+    
+  long long mergeSort(long long *nums, int low, int high)
+    {
+        if(low >= high) return 0;
+         long long mid = (low + high)/2;
+        long long val = mergeSort(nums, low, mid);
+        val += mergeSort(nums, mid+1, high);
+        val += merge(nums, low, mid, high);
+        return val;
+    }
+ long long getInversions(long long *nums, int n){
+        return mergeSort(nums, 0, n-1);    
+}
+
 
