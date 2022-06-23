@@ -32,7 +32,7 @@ vector<vector<int>> combinationSum2(vector<int> &arr, int n, int k)
 
 
 
-//TC:O(2^n*k)  SC:O(k*x)
+//TC:O(2^n*k)  SC:O(k*x)-->recursion
 
 #include<bits/stdc++.h>
 void solve(vector<int>ip,int idx,vector<int>ds,int k,vector<vector<int>>&ans){
